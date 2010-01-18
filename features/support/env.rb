@@ -54,3 +54,4 @@ require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 
 require "#{RAILS_ROOT}/spec/blueprint"
+require 'email_spec/cucumber'

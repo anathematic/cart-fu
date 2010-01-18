@@ -29,3 +29,4 @@ config.action_mailer.delivery_method = :test
 
 config.gem 'forgery', :version => '0.3.0', :source => "http://gemcutter.org"
 config.gem 'machinist', :version => '1.0.6', :source => "http://gemcutter.org"
+config.gem 'email_spec', :lib => 'email_spec'
