@@ -11,7 +11,18 @@ Given /^I have the existing product "([^\"]*)"$/ do |arg1|
 end
 
 Given /^I have 5 existing products$/ do
-  5.times do
+  Product.make(:price => 4.00, :name => "Second on the list")
+  Product.make(:price => 50.00, :name => "Third on the list")
+  
+  3.times do
     Product.make
   end
+end
+
+When /^I follow the second product$/ do
+  click_link_within(".product:nth-of-type(3)", "")
+end
+
+When /^I follow the third product$/ do
+  click_link_within(".product:nth-of-type(4)", "")
 end

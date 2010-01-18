@@ -3,10 +3,8 @@ Feature: Carts
   As a user
   I want to be able to add things to my cart
 
-  Background:
-    Given I have the existing product "Mercotac 550"
-
   Scenario: I can add products to my cart
+    Given I have the existing product "Mercotac 550"
     When I press "Add to Cart"
     Then I should see "Successfully Added to Cart"
     When I follow "Cart"
@@ -20,17 +18,16 @@ Feature: Carts
     And I press "Update Cart"
     Then I should see "6"
     And I should see "$6.00"
-    And I should see "Checkout"
     When I follow "Products"
-    And I follow the first product
+    And I follow the second product
     And I press "Add to Cart"
     Then I should see "Successfully Added to Cart"
     When I follow "Cart"
-    Then I should see "1"
-    And I should see "5"
+    And show me the page
+    Then I should see "2 products"
     And I should see "$10.00"
     When I follow "Products"
-    And I follow the second product
+    And I follow the third product
     And I press "Add to Cart"
     Then I should see "Successfully Added to Cart"
     When I follow "Cart"

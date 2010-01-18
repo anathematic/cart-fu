@@ -7,7 +7,7 @@
   </tr>
   
   <% for product in @products %>
-  <tr>
+  <tr class="product">
     <td><%= link_to product.name, product_path(product) %></td>
     <td><%= number_to_currency product.price %></td>
   </tr>

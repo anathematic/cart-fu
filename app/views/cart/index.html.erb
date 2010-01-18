@@ -1,6 +1,6 @@
 <h1>Cart</h1>
 
-<p><%= @cart.products.size %> <%= pluralize(@cart.products.size, "product") %></p>
+<p><%= pluralize(@cart.products.size, "product") %></p>
 <p><%= number_to_currency @cart.total_price %></p>
 
 <% form_tag '/cart/update' do %>
