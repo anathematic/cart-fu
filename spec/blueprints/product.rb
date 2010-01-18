@@ -1,5 +1,5 @@
 Product.blueprint do
   name
-  description
+  description { Forgery(:lorem_ipsum).paragraphs(2) }
   price
 end

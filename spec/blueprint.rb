@@ -3,8 +3,7 @@ require 'sham'
 require 'forgery'
 
 Sham.define do
-  name { "Foo" }
-  description { "Bar" }
+  name { SlipringsForgery.product_name }
   price { rand(100) }
 end
 
