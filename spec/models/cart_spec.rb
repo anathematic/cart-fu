@@ -13,9 +13,12 @@ describe Cart do
     @product = Product.first
     @cart.add_product(@product.id)
     @cart.total_items.should eql(1)
+    @cart.total_price.should eql(@product.price)
     @cart.add_product(@product.id)
     @cart.total_items.should eql(2)
-
+    @cart.total_price.should eql(@product.price*2)
+    subtotal = @cart.total_price
+    
     @product = Product.last
     @cart.add_product(@product.id)
     @cart.add_product(@product.id)
@@ -23,9 +26,10 @@ describe Cart do
     @cart.products.first.product_id.should eql(Product.first.id)
     @cart.products.first.name.should eql(Product.first.name)
     @cart.total_items.should eql(5)
-    
+    @cart.total_price.should eql((@product.price * 3) + subtotal)
     @cart.remove_product(@product.id)
     @cart.total_items.should eql(2)
+    @cart.total_price.should eql(subtotal)
   end
   
   it "should be able to update products in bulk" do
@@ -35,11 +39,12 @@ describe Cart do
     @cart.add_product(@first_product.id)
     @cart.add_product(@second_product.id)
     @cart.add_product(@third_product.id)
-    
+
     @cart.total_items.should eql(3)
-    products = [{ "product_id" => 1, "quantity" => 2 }, { "product_id" => 2, "quantity" => 3 }]
+    products = [{ "product_id" => @first_product.id, "quantity" => 2 }, { "product_id" => @second_product.id, "quantity" => 3 }, { "product_id" => "ABC", "quantity" => "ABC" }]
     @cart.update_products(products)
     @cart.total_items.should eql(6)
+    @cart.total_price.should eql((@first_product.price * 2) + (@second_product.price * 3) + @third_product.price)
   end
   
 end
