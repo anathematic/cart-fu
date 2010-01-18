@@ -4,3 +4,5 @@
 <p>Price: <%= number_to_currency @product.price %></p>
 <p>Description:</p>
 <%= h @product.description %>
+
+<p><%= button_to "Add to Cart", cart_path %> or <%= link_to "Back to Products", products_path %></p>

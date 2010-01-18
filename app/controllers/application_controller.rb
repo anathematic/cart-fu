@@ -6,5 +6,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password
+  
+  def cart
+    @cart = find_cart
+  end
+  
+  def find_cart 
+    session[:cart] ||= Cart.new 
+  end
+  
 end

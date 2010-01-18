@@ -33,6 +33,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :products
   
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+  map.cart 'cart', :controller => "cart"
+  
   map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"

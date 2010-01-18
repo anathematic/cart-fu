@@ -1,0 +1,17 @@
+<h1>Cart</h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Quantity</td>
+    <td>Price</td>
+  </tr>
+  
+  <% for product in @cart.products %>
+  <tr>
+    <td><%= link_to product.name, product_path(product) %></td>
+    <td><%= product.quantity %></td>
+    <td><%= number_to_currency product.price %></td>
+  </tr>
+  <% end %>
+</table>
