@@ -1,0 +1,10 @@
+log/*
+tmp/*
+config/database.yml
+.DS_Store
+db/development.sqlite3
+db/test.sqlite3
+webrat*.html
+public/images/photos/*
+rerun.txt
+
