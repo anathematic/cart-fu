@@ -32,7 +32,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :cart
   map.resources :products do |product|
-    product.resources :cart
+    product.resources :cart, :collection => { :remove => :get }
   end
   
   map.root :controller => "welcome"

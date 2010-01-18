@@ -1,7 +1,7 @@
 class CartItem
   
   attr_reader :product_id, :quantity
-  delegate :name, :price, :dom_id, :to => :product
+  delegate :name, :price, :dom_id, :to_params, :to => :product
   
   def initialize(product_id)
     @product_id = product_id

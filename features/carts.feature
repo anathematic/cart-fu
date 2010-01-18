@@ -23,7 +23,6 @@ Feature: Carts
     And I press "Add to Cart"
     Then I should see "Successfully Added to Cart"
     When I follow "Cart"
-    And show me the page
     Then I should see "2 products"
     And I should see "$10.00"
     When I follow "Products"
@@ -33,4 +32,13 @@ Feature: Carts
     When I follow "Cart"
     Then I should see "1"
     And I should see "$60.00"
+ 
+ Scenario: I can remove products from my cart
+   Given I have an existing item in my cart
+   When I press "Remove"
+   Then I should see "Successfully Removed from Cart"
+   And I should see "There are no products in your cart"
+
+ 
+ 
  

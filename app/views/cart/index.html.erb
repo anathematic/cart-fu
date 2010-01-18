@@ -3,22 +3,28 @@
 <p><%= pluralize(@cart.products.size, "product") %></p>
 <p><%= number_to_currency @cart.total_price %></p>
 
-<% form_tag '/cart/update' do %>
-  <table>
-    <tr>
-      <td>Name</td>
-      <td>Quantity</td>
-      <td>Price</td>
-    </tr>
+<% if @cart.products.size > 0 %>
+  <% form_tag '/cart/update' do %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
   
-    <% for product in @cart.products %>
-    <tr>
-      <td><%= link_to product.name, product_path(product) %></td>
-      <td><label for="<%= product.dom_id %>">Quantity</label><%= text_field_tag "cart[][quantity]", product.quantity, :id => product.dom_id %><%= hidden_field_tag "cart[][product_id]", product.product_id %></td>
-      <td><%= number_to_currency product.price %></td>
-    </tr>
-    <% end %>
-  </table>
+      <% for product in @cart.products %>
+      <tr>
+        <td><%= link_to product.name, product_path(product.product_id) %></td>
+        <td><label for="<%= product.dom_id %>">Quantity</label><%= text_field_tag "cart[][quantity]", product.quantity, :id => product.dom_id %><%= hidden_field_tag "cart[][product_id]", product.product_id %></td>
+        <td><%= number_to_currency product.price %></td>
+        <td><%= button_to "Remove", remove_product_cart_path(product.product_id), :method => :get, :confirm => "Are you sure you want to remove this product from your cart?" %></td>
+      </tr>
+      <% end %>
+    </table>
 
-  <p><%= submit_tag "Update Cart" %></p>
+    <p><%= submit_tag "Update Cart" %></p>
+  <% end %>
+<% else %>
+  <p>There are no <%= link_to "products", products_path %> in your cart</p>
 <% end %>
