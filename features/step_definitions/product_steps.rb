@@ -1,3 +1,3 @@
-Given /^I have the product "([^\"]*)"$/ do |arg1|
-  Product.make
+Given /^I have a product with the name "([^\"]*)"$/ do |name|
+  Product.make(:name => name)
 end

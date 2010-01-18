@@ -1,0 +1,15 @@
+<h1>Products</h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Price</td>
+  </tr>
+  
+  <% for product in @products %>
+  <tr>
+    <td><%= link_to product.name, product_path(product) %></td>
+    <td><%= number_to_currency product.price %></td>
+  </tr>
+  <% end %>
+</table>

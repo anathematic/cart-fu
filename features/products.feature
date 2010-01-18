@@ -5,7 +5,7 @@ Feature: Products
   
   Scenario: I can view a product
     Given I am on the homepage
-    And I have the product "Mercotac 550"
+    And I have a product with the name "Mercotac 550"
     When I follow "Products"
     And I follow "Mercotac 550"
     Then I should see "Mercotac 550"
