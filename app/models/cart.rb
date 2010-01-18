@@ -1,19 +1,22 @@
 class Cart
   
+  attr_reader :products
+  
   def initialize
-    @items = []
-    @user_details = Hash.new
+    @products = []
+    # @user_details = Hash.new
   end
   
   def add_product(product)
-    current_item = @items.find {|item| item.product == product}
-    if current_item
-      current_item.increment_quantity
+    current_product = @products.find {|product| product.id == product.id }
+    
+    if current_product
+      current_product.increment_quantity
     else
-      current_item = CartItem.new(product)
-      @items << current_item
+      current_product = CartItem.new(product)
+      @products << current_product
     end
-    current_item
+    current_product
   end
 
   def remove_product(product)

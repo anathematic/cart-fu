@@ -16,9 +16,4 @@ Feature: Carts
     Given context
     When event
     Then outcome
-  
-  
-  
-  
-  
-  
+ 
