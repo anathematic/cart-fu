@@ -47,4 +47,14 @@ describe Cart do
     @cart.total_price.should eql((@first_product.price * 2) + (@second_product.price * 3) + @third_product.price)
   end
   
+  it "should remove an item from the cart if it's quantity is set to 0" do
+    @product = Product.first
+    @cart.add_product(@product.id)
+    @cart.total_items.should eql(1)
+    
+    products = [{ "product_id" => @product.id, "quantity" => 0 }]
+    @cart.update_products(products)
+    @cart.products.size.should eql(0)
+  end
+  
 end

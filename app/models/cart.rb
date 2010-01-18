@@ -28,6 +28,7 @@ class Cart
     products.each do |product|
       current_product = @products.find { |p| product["product_id"].to_i == p.product_id }
       current_product.set_quantity(product["quantity"]) if current_product
+      @products.delete(current_product) if product["quantity"].to_i == 0
     end
   end
   
