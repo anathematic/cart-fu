@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :products do |product|
     product.resources :cart, :collection => { :remove => :get }
   end
+  map.resources :users
   
   map.root :controller => "welcome"
 
