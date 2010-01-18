@@ -11,14 +11,15 @@ Feature: Carts
     Then I should see "Successfully Added to Cart"
     When I follow "Cart"
     Then I should see "1 product"
+    And I should see "$1.00"
   
   Scenario: I can do things with the products in my cart
     Given I have an existing item in my cart
     And I have 5 existing products
-    When I fill in "Quantity" with "5"
+    When I fill in "Quantity" with "6"
     And I press "Update Cart"
-    Then I should see "5"
-    And I should see "$5.00"
+    Then I should see "6"
+    And I should see "$6.00"
     And I should see "Checkout"
     When I follow "Products"
     And I follow the first product

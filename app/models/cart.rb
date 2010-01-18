@@ -24,9 +24,9 @@ class Cart
     @products.delete(current_product)
   end
 
-  def update_products(products)    
+  def update_products(products)
     products.each do |product|
-      current_product = @products.find { |current_product| product["product_id"] == current_product.product_id }
+      current_product = @products.find { |current_product| product["product_id"].to_i == current_product.product_id }
       current_product.set_quantity(product["quantity"]) if current_product
     end
   end

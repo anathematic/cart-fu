@@ -41,7 +41,7 @@ describe Cart do
     @cart.add_product(@third_product.id)
 
     @cart.total_items.should eql(3)
-    products = [{ "product_id" => @first_product.id, "quantity" => 2 }, { "product_id" => @second_product.id, "quantity" => 3 }, { "product_id" => "ABC", "quantity" => "ABC" }]
+    products = { "product_id" => @first_product.id, "quantity" => 2 }, { "product_id" => @second_product.id, "quantity" => 3 }, { "product_id" => "ABC", "quantity" => "ABC" }
     @cart.update_products(products)
     @cart.total_items.should eql(6)
     @cart.total_price.should eql((@first_product.price * 2) + (@second_product.price * 3) + @third_product.price)

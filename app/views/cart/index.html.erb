@@ -1,19 +1,24 @@
 <h1>Cart</h1>
 
 <p><%= @cart.products.size %> <%= pluralize(@cart.products.size, "product") %></p>
+<p><%= number_to_currency @cart.total_price %></p>
 
-<table>
-  <tr>
-    <td>Name</td>
-    <td>Quantity</td>
-    <td>Price</td>
-  </tr>
+<% form_tag '/cart/update' do %>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>Quantity</td>
+      <td>Price</td>
+    </tr>
   
-  <% for product in @cart.products %>
-  <tr>
-    <td><%= link_to product.name, product_path(product) %></td>
-    <td><%= product.quantity %></td>
-    <td><%= number_to_currency product.price %></td>
-  </tr>
-  <% end %>
-</table>
+    <% for product in @cart.products %>
+    <tr>
+      <td><%= link_to product.name, product_path(product) %></td>
+      <td><label for="<%= product.dom_id %>">Quantity</label><%= text_field_tag "cart[][quantity]", product.quantity, :id => product.dom_id %><%= hidden_field_tag "cart[][product_id]", product.product_id %></td>
+      <td><%= number_to_currency product.price %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <p><%= submit_tag "Update Cart" %></p>
+<% end %>

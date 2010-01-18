@@ -1,5 +1,5 @@
 Given /^I have a product with the name "([^\"]*)"$/ do |name|
-  Product.make(:name => name)
+  Product.make(:name => name, :price => 1.00)
 end
 
 Given /^I have the existing product "([^\"]*)"$/ do |arg1|
