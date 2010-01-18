@@ -1,5 +1,7 @@
 <h1>Cart</h1>
 
+<p><%= @cart.products.size %> <%= pluralize(@cart.products.size, "product") %></p>
+
 <table>
   <tr>
     <td>Name</td>

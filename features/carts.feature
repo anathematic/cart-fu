@@ -10,7 +10,7 @@ Feature: Carts
   When I press "Add to Cart"
   Then I should see "Successfully Added to Cart"
   When I follow "Cart"
-  Then I should see "1 Product"
+  Then I should see "1 product"
   
   Scenario: I can do things with the products in my cart
     Given context

@@ -1,34 +1,28 @@
 class CartItem
-
-  attr_reader :product, :quantity, :item_id, :size, :price, :sub_total, :perma_link
   
-  def initialize(product)
-    @product = product
+  attr_reader :product_id, :quantity
+  delegate :name, :price, :to => :product
+  
+  def initialize(product_id)
+    @product_id = product_id
     @quantity = 1
+    @product = Product.find(product_id)
+  end
+  
+  def product
+    @product
+  end
+  
+  def product_id
+    @product_id
   end
   
   def increment_quantity
     @quantity += 1
   end
-  
-  def item_id
-    @product.id
-  end
-  
-  def size
-    @product.size
-  end
-  
-  def price
-    @product.price
-  end
-  
+    
   def sub_total
     @product.price * @quantity
-  end
-  
-  def perma_link
-    @product.perma_link
   end
   
 end
