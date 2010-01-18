@@ -1,7 +1,7 @@
 class CartItem
   
   attr_reader :product_id, :quantity
-  delegate :name, :price, :to => :product
+  delegate :name, :price, :dom_id, :to => :product
   
   def initialize(product_id)
     @product_id = product_id
@@ -20,7 +20,11 @@ class CartItem
   def increment_quantity
     @quantity += 1
   end
-    
+  
+  def set_quantity(quantity)
+    @quantity = (quantity.to_i)
+  end
+  
   def sub_total
     @product.price * @quantity
   end
