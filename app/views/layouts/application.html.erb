@@ -13,7 +13,14 @@
 
 <ul>
   <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Register", new_user_path %></li>
+  <% if current_user %>
+    <li><%= link_to "My Orders", "..." %></li>
+    <li><%= link_to "My Account", "..." %></li>
+    <li><%= link_to "Logout", logout_path %>
+  <% else %>
+    <li><%= link_to "Register", new_user_path %></li>
+    <li><%= link_to "Login", new_user_session_path %></li>
+  <% end %>
   <li><%= link_to "Products", products_path %></li>
   <li><%= link_to "Cart", cart_index_path %></li>
 </ul>

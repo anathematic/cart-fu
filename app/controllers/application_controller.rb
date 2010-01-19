@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
+  helper_method :current_user_session, :current_user
   
   # I'm finding the cart so it's loaded up on the whole website, there's probably a better way to do this but I'm okay flooding someone else's cookies until then.
   before_filter :cart

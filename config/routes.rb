@@ -35,7 +35,9 @@ ActionController::Routing::Routes.draw do |map|
     product.resources :cart, :collection => { :remove => :get }
   end
   map.resources :users
+  map.resources :user_sessions
   
+  map.logout "/logout", :controller => "user_sessions", :action => "destroy"
   map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
