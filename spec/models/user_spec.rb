@@ -3,8 +3,10 @@ require 'spec_helper'
 describe User do
   before(:each) do
     @valid_attributes = {
-      :name => "value for name",
-      :email => "value for email"
+      :name => "Thomas Sinclair",
+      :email => "thomas@icdesign.com.au",
+      :password => "12345",
+      :password_confirmation => "12345"
     }
   end
 
