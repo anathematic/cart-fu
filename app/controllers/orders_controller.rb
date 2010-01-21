@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
     @order.build_billing(params[:order][:shipping_attributes]) if params[:order][:billing_and_shipping]
     
     if @order.save
+      load_cart_into_line_items
       redirect_to pay_order_path(@order)
       flash[:notice] = "Successfully Entered Order Details"
     else
