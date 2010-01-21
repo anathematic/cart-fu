@@ -7,10 +7,10 @@ Feature: Checkout
     Given I am logged in
     And I have an existing item in my cart
     When I press "Checkout"
-    And show me the page
     And I fill in "Full Name" with "Thomas Sinclair"
     And I fill in "Address Line 1" with "624 George Street"
     And I fill in "Suburb" with "Sydney"
+    And I fill in "Postcode" with "2000"
     And I fill in "State" with "New South Wales"
     And I select "Australia" from "Country"
     And I fill in "Phone Number" with "00 0000 0000"

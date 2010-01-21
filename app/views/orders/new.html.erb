@@ -1,4 +1,5 @@
 <% semantic_form_for @order do |f| %>
+  <%= f.error_messages %>
   <% f.semantic_fields_for :shipping do |b| %>
     <h2>Address Details</h2>
     <%= render(:partial => "address_form", :locals => { :b => b }) %>
