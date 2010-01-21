@@ -32,4 +32,17 @@ describe Order do
     @order.total_price.should eql(LineItem.all.collect { |l| l.price * l.quantity }.sum )
   end
   
+  it "should load in the cart items when passed a cart using the cart_items accessor" do
+    @order.save
+    @order.total_items.should eql(0)
+    @cart = Cart.new
+    @cart.add_product(Product.make)
+    @cart.add_product(Product.make)
+    @cart.products.size.should eql(2)
+    
+    @order.load_cart_items(@cart.products)
+    @order.reload
+    @order.line_items.size.should eql(2)
+  end
+  
 end

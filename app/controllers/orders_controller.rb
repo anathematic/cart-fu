@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     @order = current_user.orders.new
     @order.build_shipping
     @order.build_billing
+    @order.line_items.build
   end
   
   def create
@@ -33,5 +34,10 @@ class OrdersController < ApplicationController
     def check_if_paid
       redirect_to order_path(@order) unless @order.pending_payment?
     end
-  
+    
+    def load_cart_into_line_items
+      @order.load_cart_items(@cart.products)
+      @cart.empty_cart
+    end
+
 end

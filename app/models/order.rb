@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   
   validates_presence_of :user, :shipping, :billing
   
-  accepts_nested_attributes_for :shipping, :billing
+  accepts_nested_attributes_for :shipping, :billing, :line_items
   
   attr_accessor :billing_and_shipping
   
@@ -36,4 +36,11 @@ class Order < ActiveRecord::Base
     line_items.collect { |l| l.total }.sum
   end
   
+  public
+  
+    def load_cart_items(cart_items)
+      cart_items.each do |cart_item|
+        line_items.create!(:quantity => cart_item.quantity, :product_id => cart_item.product_id)
+      end
+    end
 end
