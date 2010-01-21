@@ -3,14 +3,14 @@ require 'spec_helper'
 describe Address do
   before(:each) do
     @valid_attributes = {
-      :name => "value for name",
-      :address1 => "value for address1",
-      :address2 => "value for address2",
-      :suburb => "value for suburb",
-      :state => "value for state",
-      :postcode => "value for postcode",
-      :phone => "value for phone",
-      :country => "value for country"
+      :name => "Thomas Sinclair",
+      :address1 => "624 George Street",
+      :address2 => "",
+      :suburb => "Sydney",
+      :state => "New South Wales",
+      :postcode => "2000",
+      :phone => "02 9550 3666",
+      :country => "Australia"
     }
   end
 

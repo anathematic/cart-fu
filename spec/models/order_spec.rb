@@ -2,11 +2,14 @@ require 'spec_helper'
 
 describe Order do
   before(:each) do
+    @user = User.make
+    @shipping = Address.make
+    @billing = Address.make
+    
     @valid_attributes = {
-      :status => "value for status",
-      :user_id => 1,
-      :shipping_id => 1,
-      :billing_id => 1
+      :user_id => @user.id,
+      :shipping_id => @shipping.id,
+      :billing_id => @billing.id
     }
     @order = Order.new(@valid_attributes)
   end
@@ -14,7 +17,7 @@ describe Order do
   it "should create a new instance given valid attributes" do
     @order.should be_valid
     @order.save!
-    @order.status.should eql("pending payment")
+    @order.status.should eql("pending_payment")
   end
   
 end

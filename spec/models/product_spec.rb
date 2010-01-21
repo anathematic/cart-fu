@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Product do
   before(:each) do
     @valid_attributes = {
-      :name => "value for name",
-      :description => "value for description",
+      :name => "Rubber Ball",
+      :description => "1 x rubber ball, in great condition and still has its bounce",
       :hot => false,
       :price => 9.99
     }
