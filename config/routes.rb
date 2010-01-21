@@ -31,13 +31,14 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   map.resources :cart
-  map.resources :checkout
+  map.resources :orders
   map.resources :products do |product|
     product.resources :cart, :collection => { :remove => :get }
   end
   map.resources :users
   map.resources :user_sessions
   
+  map.checkout "/checkout", :controller => "orders", :action => "new"
   map.logout "/logout", :controller => "user_sessions", :action => "destroy"
   map.root :controller => "welcome"
 
