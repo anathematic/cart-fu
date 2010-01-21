@@ -8,9 +8,13 @@ describe Order do
       :shipping_id => 1,
       :billing_id => 1
     }
+    @order = Order.new(@valid_attributes)
   end
 
   it "should create a new instance given valid attributes" do
-    Order.create!(@valid_attributes)
+    @order.should be_valid
+    @order.save!
+    @order.status.should eql("pending payment")
   end
+  
 end
