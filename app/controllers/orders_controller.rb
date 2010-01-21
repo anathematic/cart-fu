@@ -1,8 +1,12 @@
 class OrdersController < ApplicationController
   
   before_filter :require_user
-  before_filter :order, :only => ['show', 'pay']
+  before_filter :order, :only => ['show', 'pay', 'edit', 'update']
   before_filter :check_if_paid, :only => ['pay'] 
+  
+  def index
+    @orders = current_user.orders.all
+  end
   
   def new
     @order = current_user.orders.new
@@ -23,6 +27,15 @@ class OrdersController < ApplicationController
       flash[:notice] = "Successfully Entered Order Details"
     else
       render(:action => "new")
+    end
+  end
+  
+  def update
+    if @order.update_attributes(params[:order])
+      redirect_to order_path(@order)
+      flash[:notice] = "Successfully Updated Order"
+    else
+      render(:action => "edit")
     end
   end
   

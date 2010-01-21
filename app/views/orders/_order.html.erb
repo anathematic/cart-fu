@@ -1,0 +1,1 @@
+<div class="order">Order #<%= link_to order.id, order_path(order) %> - Status: <%= order.status %> - <%= pluralize(order.total_items, "item") %> - <%= number_to_currency order.total_price %></div>

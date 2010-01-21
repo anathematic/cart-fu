@@ -1,3 +1,4 @@
 <h1>Order</h1>
 
-*order summary*
+<% if @order.pending_payment? %><p>This order has not yet been paid for, <%= link_to "pay now", pay_order_path(@order) %></p><% end %>
+<%= link_to "Edit", edit_order_path(@order) %>
