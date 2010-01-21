@@ -4,7 +4,6 @@ class Cart
   
   def initialize
     @products = []
-    # @user_details = Hash.new
   end
   
   def add_product(product_id)
