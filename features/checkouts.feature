@@ -17,6 +17,8 @@ Feature: Checkout
     And I check "My shipping and billing details are the same"
     And I press "Submit Details"
     Then I should see "Confirmation Page"
+    And I should see "1 item"
+    And I should see "$1.00"
     When I fill in "Credit Card Number" with "0000 0000 0000 0000"
     And I fill in "Month" with "05"
     And I fill in "Year" with "2088"

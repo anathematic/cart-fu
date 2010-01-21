@@ -18,6 +18,7 @@ describe Order do
     @order.should be_valid
     @order.save!
     @order.status.should eql("pending_payment")
+    @order.pending_payment?.should eql(true)
   end
   
 end

@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   
   before_filter :require_user
-  before_filter :check_if_paid 
+  before_filter :order, :only => ['show', 'pay']
+  before_filter :check_if_paid, :only => ['pay'] 
   
   def new
     @order = current_user.orders.new
@@ -23,18 +24,14 @@ class OrdersController < ApplicationController
     end
   end
   
-  def show
-    @order = current_user.orders.find(params[:id])
-  end
-  
-  def pay
-    @order = current_user.orders.find(params[:id])
-  end
-  
   private
   
+    def order
+      @order = current_user.orders.find(params[:id])
+    end
+    
     def check_if_paid
-      redirect_to order_path(@order) unless @order.new?
+      redirect_to order_path(@order) unless @order.pending_payment?
     end
   
 end
