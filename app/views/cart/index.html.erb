@@ -25,6 +25,8 @@
 
     <p><%= submit_tag "Update Cart" %></p>
   <% end %>
+  
+  <p><%= button_to "Checkout", new_checkout_path, :method => :get %></p>
 <% else %>
   <p>There are no <%= link_to "products", products_path %> in your cart</p>
 <% end %>

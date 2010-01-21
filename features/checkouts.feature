@@ -4,9 +4,9 @@ Feature: Checkout
   I want use the items in my cart to create an order / checkout
   
   Scenario: I can checkout the items in my cart
-    Given I have an existing item in my cart
-    And I am logged in
-    When I follow "Checkout"
+    Given I am logged in
+    And I have an existing item in my cart
+    When I press "Checkout"
     And I fill in "Full Name" with "Thomas Sinclair"
     And I fill in "Address Line 1" with "624 George Street"
     And I fill in "Suburb" with "Sydney"
