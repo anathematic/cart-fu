@@ -2,3 +2,25 @@
 
 <% if @order.pending_payment? %><p>This order has not yet been paid for, <%= link_to "pay now", pay_order_path(@order) %></p><% end %>
 <%= link_to "Edit", edit_order_path(@order) %>
+
+<ul>
+  <li><%= @order.shipping.address1 %></li>
+  <% unless @order.shipping.address2.blank? %><li><%= @order.shipping.address2 %></li><% end %>
+  <li><%= @order.shipping.suburb %></li>
+  <li><%= @order.shipping.postcode %></li>
+  <li><%= @order.shipping.state %></li>
+  <li><%= @order.shipping.country %></li>
+</ul>
+  
+<ul>
+  <li><%= @order.billing.address1 %></li>
+  <% unless @order.billing.address2.blank? %><li><%= @order.billing.address2 %></li><% end %>
+  <li><%= @order.billing.suburb %></li>
+  <li><%= @order.billing.postcode %></li>
+  <li><%= @order.billing.state %></li>
+  <li><%= @order.billing.country %></li>
+</ul>
+
+<% for line_item in @order.line_items %>
+  <%= line_item.quantity %> x <%= line_item.name %> @ <%= number_to_currency line_item.price %>
+<% end %>
