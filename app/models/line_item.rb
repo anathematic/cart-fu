@@ -10,4 +10,9 @@ class LineItem < ActiveRecord::Base
   def assign_price
     self.price = product.price
   end
+  
+  def total
+    quantity*price
+  end
+  
 end

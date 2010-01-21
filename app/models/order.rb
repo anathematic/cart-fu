@@ -28,4 +28,12 @@ class Order < ActiveRecord::Base
     transitions :to => :sent, :from => :paid
   end
   
+  def total_items
+    line_items.sum(:quantity)
+  end
+  
+  def total_price
+    line_items.collect { |l| l.total }.sum
+  end
+  
 end

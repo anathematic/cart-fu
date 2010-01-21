@@ -21,4 +21,15 @@ describe Order do
     @order.pending_payment?.should eql(true)
   end
   
+  it "should be able to correctly calulate the total_items and total_price based on the line_items" do
+    @order.save
+    
+    5.times do 
+      @order.line_items.make(:quantity => rand(5))
+    end
+    
+    @order.total_items.should eql(LineItem.sum(:quantity))
+    @order.total_price.should eql(LineItem.all.collect { |l| l.price * l.quantity }.sum )
+  end
+  
 end
