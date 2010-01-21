@@ -1,1 +1,15 @@
-hello
+<% semantic_form_for @order do |f| %>
+  <% f.semantic_fields_for :shipping do |b| %>
+    <h2>Address Details</h2>
+    <%= render(:partial => "address_form", :locals => { :b => b }) %>
+  <% end %>
+  
+  <%= f.input :billing_and_shipping, :as => :boolean, :label => "My shipping and billing details are the same" %>
+  
+  <% f.semantic_fields_for :billing do |b| %>
+    <h2>Billing Details</h2>
+    <%= render(:partial => "address_form", :locals => { :b => b }) %>
+  <% end %>
+  
+  <%= f.submit "Submit Details" %>
+<% end %>
