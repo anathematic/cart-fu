@@ -24,28 +24,18 @@ Feature: Admin
     Then I should see "Successfully Destroyed Product"
     And I should see "There are no products, create one."
   
-  Scenario: I can export a list of users as well as export existing users
-    Given context
-    When event
-    Then outcome
-  
-  Scenario: I can create products and view them
-    Given context
-    When event
-    Then outcome
-  
-  Scenario: I can view existing orders and update their status
-    Given context
-    When event
-    Then outcome
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
+  # Scenario: I can export a list of users as well as export existing users
+  #   Given context
+  #   When event
+  #   Then outcome
+  # 
+  # Scenario: I can create products and view them
+  #   Given context
+  #   When event
+  #   Then outcome
+  # 
+  # Scenario: I can view existing orders and update their status
+  #   Given context
+  #   When event
+  #   Then outcome
   

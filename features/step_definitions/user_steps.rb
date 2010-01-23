@@ -27,5 +27,5 @@ end
 Given /^I am logged in as an admin$/ do
   Given 'I am logged in'
   And '"thomas@icdesign.com.au" is an admin'
-  And 'I am on the administrative page'
+  And 'I am on the admin page'
 end

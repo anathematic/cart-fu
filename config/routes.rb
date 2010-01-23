@@ -29,8 +29,9 @@ ActionController::Routing::Routes.draw do |map|
   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
   #     admin.resources :products
   #   end
-  map.resources :admin
-  
+  map.resources :admin do |admin_index|
+    admin_index.resources :products, :controller => "admin/products"
+  end
 
   map.resources :cart
   map.resources :orders, :member => { :pay => :get }
