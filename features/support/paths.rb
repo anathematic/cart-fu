@@ -10,8 +10,8 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
-    When '/the administrative page'
-      '/admin'
+    when /the administrative page/
+      admin_index_path
     # Add more mappings here.
     # Here is a more fancy example:
     #

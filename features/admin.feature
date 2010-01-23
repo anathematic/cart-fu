@@ -3,8 +3,8 @@ Feature: Admin
   As an admin
   I want to be able to manage products, orders and users
   
-  Background;
-    Given I am on the administrative page
+  Background:
+    Given I am logged in as an admin
     
   Scenario: I can create users and view a users details
     When I follow "Products"
