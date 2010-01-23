@@ -1,0 +1,7 @@
+<h1>Products</h1>
+
+<% if @products.size > 0 %>
+  <%= render(:partial => "product", :collection => @products) %>
+<% else %>
+  <p>There are currently no products, <%= link_to "create one", new_admin_product_path %></p>
+<% end %>
