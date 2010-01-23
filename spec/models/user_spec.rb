@@ -8,9 +8,14 @@ describe User do
       :password => "12345",
       :password_confirmation => "12345"
     }
+    
+    @user = User.new(@valid_attributes)
   end
 
   it "should create a new instance given valid attributes" do
-    User.create!(@valid_attributes)
+    @user.should be_valid
+    @user.save!
+    @user.permission.should eql("user")
+    @user.admin?.should eql(false)
   end
 end
