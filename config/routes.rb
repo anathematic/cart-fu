@@ -30,9 +30,10 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
   
-  map.resources :admin
+  map.admin '/admin', :controller => "admin", :action => "index"
+  # map.resources :admin
   map.namespace :admin do |admin_index|
-    admin_index.resources :products, :controller => "admin/products"
+    admin_index.resources :products
   end
 
   map.resources :cart

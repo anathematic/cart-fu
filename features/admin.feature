@@ -3,10 +3,11 @@ Feature: Admin
   As an admin
   I want to be able to manage products, orders and users
   
-  Background:
-    Given I am logged in as an admin
+  # Background:
+  #   Given I am logged in as an admin
     
   Scenario: I can create users and view a users details
+    Given I am logged in as an admin
     When I follow "Products"
     And I follow "New Product"
     And I fill in "Name" with "Red Ballon"

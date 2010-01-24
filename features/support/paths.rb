@@ -11,7 +11,7 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
     when /the admin\s?page/
-      admin_index_path
+      admin_path
     # Add more mappings here.
     # Here is a more fancy example:
     #
