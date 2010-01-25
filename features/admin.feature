@@ -38,7 +38,7 @@ Feature: Admin
     And I fill in "Name" with "Thomas Trent"
     And I press "Update User"
     Then I should see "Successfully Updated User"
-    And I should see "THomas Trent"
+    And I should see "Thomas Trent"
     When I follow "Destroy"
     Then I should see "Successfully Destroyed User"
     When I follow "Export Users"

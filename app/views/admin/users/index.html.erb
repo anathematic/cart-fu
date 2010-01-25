@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<% if @users.size > 0 %>
+  <%= render(:partial => "user", :collection => @users) %>
+<% else %>
+  <p>There are currently no users, <%= link_to "create one", new_admin_user_path %></p>
+<% end %>
+
+<p><%= link_to "New User", new_admin_user_path %></p>
