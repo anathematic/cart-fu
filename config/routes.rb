@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   # map.resources :admin
   map.namespace :admin do |admin_index|
     admin_index.resources :products
+    admin_index.resources :users
   end
 
   map.resources :cart
