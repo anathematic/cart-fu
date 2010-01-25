@@ -1,0 +1,7 @@
+<h1>Orders</h1>
+
+<% if @orders.size > 0 %>
+  <%= render(:partial => "order", :collection => @orders) %>
+<% else %>
+  <p>There are no orders</p>
+<% end %>

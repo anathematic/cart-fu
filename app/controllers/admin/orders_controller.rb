@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
 
   before_filter :require_admin
-  before_filter :product, :only => ['show', 'edit', 'update', 'destroy']
+  before_filter :order, :only => ['show', 'edit', 'update', 'destroy']
   layout "admin"
   
   def index

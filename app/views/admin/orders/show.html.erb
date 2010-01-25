@@ -1,0 +1,5 @@
+<h1>Showing Order</h1>
+
+<% if @order.paid? %>
+  <p>This order is currently pending delivery, <%= link_to "mark as delivered", "..." %></p>
+<% end %>
