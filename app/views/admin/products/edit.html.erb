@@ -1,0 +1,6 @@
+<h1>Edit Product</h1>
+
+<% semantic_form_for [:admin, @product] do |f| %>
+  <%= render(:partial => "form", :locals => { :f => f }) %>
+  <p><%= f.submit "Update Product" %> or <%= link_to "Back to Products", admin_products_path %></p>
+<% end %>

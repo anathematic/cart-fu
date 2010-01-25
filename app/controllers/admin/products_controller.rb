@@ -39,7 +39,7 @@ class Admin::ProductsController < ApplicationController
   def destroy
     if @product.destroy
       redirect_to admin_products_path
-      flash[:notice] = "Successfully Destroed Product"
+      flash[:notice] = "Successfully Destroyed Product"
     end
   end
   

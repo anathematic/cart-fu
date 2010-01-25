@@ -23,7 +23,7 @@ Feature: Admin
     And I should see "$10.00"
     When I follow "Destroy"
     Then I should see "Successfully Destroyed Product"
-    And I should see "There are no products, create one."
+    And I should see "There are currently no products, create one"
   
   # Scenario: I can export a list of users as well as export existing users
   #   Given context
