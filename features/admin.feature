@@ -46,8 +46,12 @@ Feature: Admin
     Then I should see "Successfully Destroyed Product"
     And I should see "There are currently no products, create one"
    
-  # Scenario: I can view existing orders and update their status
-  #   Given context
-  #   When event
-  #   Then outcome
-  
+  Scenario: I can view existing orders and update their status
+    Given I have an existing paid order
+    When I follow "Orders"
+    And I follow the first order
+    Then I should see "This order is paid for, pending delivery"
+    When I press "Mark as delivered"
+    Then I should see "Successfully Updated Order"
+    And I should see "This order has been delivered"
+    

@@ -20,6 +20,10 @@ class Order < ActiveRecord::Base
   aasm_state :paid
   aasm_state :sent
   
+  aasm_event :pending_payment do
+    
+  end
+  
   aasm_event :paid do
     transitions :to => :paid, :from => :pending_payment
   end

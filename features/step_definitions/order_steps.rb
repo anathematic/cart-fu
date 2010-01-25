@@ -19,3 +19,9 @@ end
 When /^I follow the first order$/ do
   click_link_within(".order", "")
 end
+
+Given /^I have an existing paid order$/ do
+  @order = Order.make
+  @order.paid!
+  @order.sent!
+end
