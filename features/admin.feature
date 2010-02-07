@@ -50,8 +50,8 @@ Feature: Admin
     Given I have an existing paid order
     When I follow "Orders"
     And I follow the first order
-    Then I should see "This order is paid for, pending delivery"
-    When I press "Mark as delivered"
+    Then I should see "This order is currently pending delivery"
+    When I press "mark as delivered"
     Then I should see "Successfully Updated Order"
     And I should see "This order has been delivered"
     

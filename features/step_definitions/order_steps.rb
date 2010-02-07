@@ -23,5 +23,4 @@ end
 Given /^I have an existing paid order$/ do
   @order = Order.make
   @order.paid!
-  @order.sent!
 end
