@@ -53,3 +53,7 @@ Spec::Runner.configure do |config|
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
   require "#{RAILS_ROOT}/spec/blueprint"
 end
+
+def random_product
+  Product.make(:photo => Photo.make)
+end

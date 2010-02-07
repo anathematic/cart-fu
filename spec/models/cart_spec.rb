@@ -5,7 +5,7 @@ describe Cart do
     @cart = Cart.new
 
     5.times do
-      Product.make
+      Product.make(:photo => Photo.make)
     end
   end
 

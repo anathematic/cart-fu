@@ -3,7 +3,7 @@ require 'spec_helper'
 describe LineItem do
   before(:each) do
     @order = Order.make
-    @product = Product.make
+    @product = Product.make(:photo => Photo.make)
     
     @valid_attributes = {
       :product_id => @product.id,

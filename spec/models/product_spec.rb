@@ -6,7 +6,7 @@ describe Product do
       :name => "Rubber Ball",
       :description => "1 x rubber ball, in great condition and still has its bounce",
       :hot => false,
-      :price => 9.99
+      :price => 9.99,
     }
     @product = Product.new(@valid_attributes)
   end

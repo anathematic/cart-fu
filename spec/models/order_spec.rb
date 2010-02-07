@@ -25,7 +25,7 @@ describe Order do
     @order.save
     
     5.times do 
-      @order.line_items.make(:quantity => rand(5))
+      @order.line_items.make(:quantity => rand(5), :product => random_product)
     end
     
     @order.total_items.should eql(LineItem.sum(:quantity))
@@ -36,8 +36,8 @@ describe Order do
     @order.save
     @order.total_items.should eql(0)
     @cart = Cart.new
-    @cart.add_product(Product.make)
-    @cart.add_product(Product.make)
+    @cart.add_product(Product.make(:photo => Photo.make))
+    @cart.add_product(Product.make(:photo => Photo.make))
     @cart.products.size.should eql(2)
     
     @order.load_cart_items(@cart.products)
