@@ -32,7 +32,7 @@ Feature: Admin
     And I fill in "Name" with "Red Ballon"
     And I fill in "Price" with "5.00"
     And I fill in "Description" with "This is the all mighty red ballon, only sale this week only."
-    And I attach the file "spec/fixtures/product.jpg" to "Photo"
+    And I attach the file "spec/fixtures/red-ball.jpg" to "Photo"
     And I press "Create Product"
     Then I should see "Successfully Created Product"
     And I should see "Red Ballon"

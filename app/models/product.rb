@@ -6,6 +6,7 @@ class Product < ActiveRecord::Base
   has_one :photo
   
   accepts_nested_attributes_for :photo
+  # accepts_nested_attributes_for :photos
   
   def validate
     errors.add(:photo, "must require an inital photo") if photo.blank?
