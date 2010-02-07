@@ -6,7 +6,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :photo_content_type
       t.integer :photo_file_size
       t.datetime :photo_updated_at
-
+      t.integer :product_id
       t.timestamps
     end
   end
