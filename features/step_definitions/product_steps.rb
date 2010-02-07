@@ -11,11 +11,11 @@ Given /^I have the existing product "([^\"]*)"$/ do |arg1|
 end
 
 Given /^I have 5 existing products$/ do
-  Product.make(:price => 4.00, :name => "Second on the list")
-  Product.make(:price => 50.00, :name => "Third on the list")
+  Product.make(:price => 4.00, :name => "Second on the list", :photo => Photo.make)
+  Product.make(:price => 50.00, :name => "Third on the list", :photo => Photo.make)
   
   3.times do
-    Product.make
+    Product.make(:photo => Photo.make)
   end
 end
 
