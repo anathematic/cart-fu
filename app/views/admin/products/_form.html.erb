@@ -1,3 +1,7 @@
 <%= f.input :name %>
 <%= f.input :price %>
 <%= f.input :description %>
+
+<% f.fields_for @product.photo do |p| %>
+  <%= p.input :photo %>
+<% end %>
