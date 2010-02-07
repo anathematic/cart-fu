@@ -3,7 +3,7 @@ require 'sham'
 require 'forgery'
 
 Sham.define do
-  product_name { SlipringsForgery.product_name }
+  product_name { CartFu.product_name }
   price { rand(100) }
   name { Forgery(:name).full_name }
   email { Forgery(:internet).email_address }
