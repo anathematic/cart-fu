@@ -5,7 +5,6 @@ class Product < ActiveRecord::Base
   has_many :line_items
   has_one :photo
   
-  # before_validation_on_create :ensure_photo_exists
   accepts_nested_attributes_for :photo
   
   def validate
