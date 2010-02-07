@@ -25,8 +25,6 @@ Feature: Admin
     Then I should see "Successfully Destroyed User"
   
   # Scenario: I can export a list of users as well as export existing users
-    # When I follow "Export Users"
-    #     Then I should see "thomas@icdesign.com.au"
 
   Scenario: I can create products and view them
     When I follow "Products"
@@ -34,6 +32,7 @@ Feature: Admin
     And I fill in "Name" with "Red Ballon"
     And I fill in "Price" with "5.00"
     And I fill in "Description" with "This is the all mighty red ballon, only sale this week only."
+    And I attach the file "spec/fixtures/product.jpg" to "Photo"
     And I press "Create Product"
     Then I should see "Successfully Created Product"
     And I should see "Red Ballon"
