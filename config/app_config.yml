@@ -1,0 +1,15 @@
+development:
+  domain: localhost:3000
+  name: Ball Shop
+
+cucumber:
+  domain: test.host
+  name: Ball Shop
+
+test:
+  domain: test.host
+  name: Ball Shop
+
+production:
+  domain: example.com
+  name: Ball Shop
