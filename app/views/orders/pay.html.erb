@@ -6,3 +6,12 @@
 
 <p>Total: <%= number_to_currency @order.total_price %></p>
 <p><%= pluralize(@order.total_items, "item") %></p>
+
+<% semantic_form_for @payment do |f| %>
+  <%= f.input :name %>
+  <%= f.input :number, :label => "Credit Card Number" %>
+  <%= f.input :month %>
+  <%= f.input :year %>
+  <%= f.input %>
+  <p><%= f.input "Confirm", :disable_with => "Processing" %> or <%= link_to "Back to Order", order_path(@order) %></p>
+<% end %>

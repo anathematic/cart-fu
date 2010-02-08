@@ -47,6 +47,7 @@ class OrdersController < ApplicationController
     
     def check_if_paid
       redirect_to order_path(@order) unless @order.pending_payment?
+      @payment = @order.payment.new(:name => @order.name)
     end
     
     def load_cart_into_line_items

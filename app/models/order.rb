@@ -32,6 +32,10 @@ class Order < ActiveRecord::Base
     transitions :to => :sent, :from => :paid
   end
   
+  def name
+    shipping.name
+  end
+  
   def total_items
     line_items.sum(:quantity)
   end
