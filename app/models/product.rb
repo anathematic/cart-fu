@@ -5,10 +5,11 @@ class Product < ActiveRecord::Base
   has_many :line_items
   has_one :photo
   
+  validate :ensure_photo_exists
   accepts_nested_attributes_for :photo
   # accepts_nested_attributes_for :photos
   
-  def validate
+  def ensure_photo_exists
     errors.add(:photo, "must require an inital photo") if photo.blank?
   end
   
