@@ -6,10 +6,12 @@ describe Payment do
     @valid_attributes = {
       :success => false,
       :order => @order,
-      :name => @order.name,
+      :first_name => "Thomas",
+      :last_name => "Sinclair",
       :number => "0000 0000 0000 0000",
       :month => "05",
       :year => "2011",
+      :card_type => "bogus",
       :verification_value => "123"
     }
     @payment = Payment.new(@valid_attributes)
@@ -21,8 +23,9 @@ describe Payment do
   
   it "should validate that the credit card is validated" do
     @payment.number = nil
+    @payment.card_type = nil
     @payment.save
-    @payment.should have(1).error
+    @payment.should have(2).errors
   end
   
 end

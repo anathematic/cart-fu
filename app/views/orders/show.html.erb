@@ -1,6 +1,6 @@
 <h1>Order</h1>
 
-<% if @order.pending_payment? %><p>This order has not yet been paid for, <%= link_to "pay now", new_order_payment_path(@order) %></p><% end %>
+<% if @order.pending_payment? %><p>This order has not yet been paid for, <%= link_to "pay now", new_order_payment_path(@order, :order => { :something => "bar" }) %></p><% end %>
 <%= link_to "Edit", edit_order_path(@order) %>
 
 <ul>
