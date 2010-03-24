@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
   
   map.admin '/admin', :controller => "admin", :action => "index"
-  # map.resources :admin
+  
   map.namespace :admin do |admin_index|
     admin_index.resources :orders
     admin_index.resources :products

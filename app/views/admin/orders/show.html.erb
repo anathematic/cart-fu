@@ -1,4 +1,5 @@
 <h1>Showing Order</h1>
 
-<% if @order.paid? %><p>This order is currently pending delivery, <%= button_to "mark as delivered", admin_order_path(@order, :order => { :status => "paid" }), :method => :put %></p><% end %>
+<% if @order.paid? %>
+  <p>This order is currently pending delivery, <%= button_to "mark as delivered", admin_order_path(@order), :method => :put %></p><% end %>
 <% if @order.sent? %><p>This order has been delivered</p><% end %>

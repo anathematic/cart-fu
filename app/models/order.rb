@@ -6,6 +6,7 @@ class Order < ActiveRecord::Base
   belongs_to :shipping, :class_name => "Address"
   belongs_to :billing, :class_name => "Address"
   
+  has_one :payment
   has_many :line_items
   
   validates_presence_of :user, :shipping, :billing
