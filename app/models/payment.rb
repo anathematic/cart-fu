@@ -2,17 +2,12 @@ class Payment < ActiveRecord::Base
   
   belongs_to :order
   
-  attr_accessor :number, :month, :year, :verification_value, :name
+  attr_accessor :number, :month, :year, :verification_value, :first_name, :last_name, :card_type
+  
+  validates_presence_of :order
+  validates_associated :order
   
   validate :credit_card
-  
-  def first_name
-    order.name.split(" ")[0]
-  end
-  
-  def last_name
-    order.name.split(" ")[1]
-  end
   
   def credit_card
     credit_card = ActiveMerchant::Billing::CreditCard.new(
@@ -21,7 +16,8 @@ class Payment < ActiveRecord::Base
       :year => year,
       :first_name => first_name,
       :last_name => last_name,
-      :verification_value => verification_value	
+      :verification_value => verification_value,
+      :type => card_type
     )
     
     unless credit_card.valid?

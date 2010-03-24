@@ -1,0 +1,13 @@
+<h1>Confirmation Page</h1>
+
+<% for lineitem in @order.line_items %>
+  <%= lineitem.quantity %> x <%= lineitem.name %> @ <%= number_to_currency lineitem.price %>
+<% end %>
+
+<p>Total: <%= number_to_currency @order.total_price %></p>
+<p><%= pluralize(@order.total_items, "item") %></p>
+
+<% semantic_form_for [@order, @payment] do |f| %>
+  <%= render(:partial => "form", :locals => { :f => f }) %>
+  <p><%= f.submit "Confirm", :disable_with => "Processing" %> or <%= link_to "Back to Order", order_path(@order) %></p>
+<% end %>

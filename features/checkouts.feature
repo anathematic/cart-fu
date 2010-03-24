@@ -19,10 +19,13 @@ Feature: Checkout
     Then I should see "Confirmation Page"
     And I should see "1 item"
     And I should see "$1.00"
-    When I fill in "Credit Card Number" with "0000 0000 0000 0000"
-    And I fill in "Month" with "05"
-    And I fill in "Year" with "2088"
-    And I fill in "CCV" with "123"
+    When I fill in the following:
+      | Credit Card Number | 0000 0000 0000 0000 |
+      | First Name         | Thomas              |
+      | Last Name          | Sinclair            |
+      | Month              | 05                  |
+      | Year               | 2012                |
+      | Verification Code  | 123                 |
+      | Card Type          | bogus               |
     And I press "Confirm"
-    Then I should see "Thanks for the order"
-    And I should receive an email
+    Then I should see "Successfully Paid Order"

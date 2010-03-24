@@ -1,0 +1,8 @@
+<%= f.error_messages %>
+<%= f.input :first_name %>
+<%= f.input :last_name %>
+<%= f.input :number, :label => "Credit Card Number" %>
+<%= f.input :month %>
+<%= f.input :year %>
+<%= f.input :verification_value, :label => "Verification Code" %>
+<%= f.input :card_type, :as => :radio, :collection => ["Visa", "Master Card", "Americans Express", "bogus"] %>

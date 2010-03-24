@@ -39,7 +39,10 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :cart
-  map.resources :orders, :member => { :pay => :get }
+  map.resources :orders do |order|
+    order.resources :payments
+  end
+  
   map.resources :products do |product|
     product.resources :cart, :collection => { :remove => :get }
   end

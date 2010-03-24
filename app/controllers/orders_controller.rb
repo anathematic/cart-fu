@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   
   before_filter :require_user
   before_filter :order, :only => ['show', 'pay', 'edit', 'update']
-  before_filter :check_if_paid, :only => ['pay'] 
   
   def index
     @orders = current_user.orders.all
@@ -23,7 +22,7 @@ class OrdersController < ApplicationController
     
     if @order.save
       load_cart_into_line_items
-      redirect_to pay_order_path(@order)
+      redirect_to new_order_payment_path(@order)
       flash[:notice] = "Successfully Entered Order Details"
     else
       render(:action => "new")
@@ -43,11 +42,6 @@ class OrdersController < ApplicationController
   
     def order
       @order = current_user.orders.find(params[:id])
-    end
-    
-    def check_if_paid
-      redirect_to order_path(@order) unless @order.pending_payment?
-      @payment = @order.build_payment(:name => @order.name)
     end
     
     def load_cart_into_line_items

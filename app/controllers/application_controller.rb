@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
+  filter_parameter_logging :password, :password_confirmation, :number, :month, :year, :verification_value#, :card_type
   helper_method :current_user_session, :current_user
   
   # I'm finding the cart so it's loaded up on the whole website, there's probably a better way to do this but I'm okay flooding someone else's cookies until then.
