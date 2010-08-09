@@ -1,5 +1,6 @@
 <h1>Showing Order</h1>
 
 <% if @order.paid? %>
-  <p>This order is currently pending delivery, <%= button_to "mark as delivered", admin_order_path(@order), :method => :put %></p><% end %>
+  <p>This order is currently pending delivery, <% semantic_form_for [:admin, @order] do |f| %> <%= f.input :status, :as => :hidden, :value => "sent" %><%= f.submit "mark as delivered" %><% end %></p>
+<% end %>
 <% if @order.sent? %><p>This order has been delivered</p><% end %>
