@@ -26,6 +26,6 @@ Feature: Checkout
       | Month              | 05                  |
       | Year               | 2012                |
       | Verification Code  | 123                 |
-      | Card Type          | bogus               |
+    And I choose "bogus"
     And I press "Confirm"
     Then I should see "Successfully Paid Order"
